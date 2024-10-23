@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-10-22T10:43:13.939451" rpa="false" schemaversion="5">
+<suite id="s1" name="ROBOT" source="/home/citco/Documents/ROBOT">
+<suite id="s1-s1" name="Tests" source="/home/citco/Documents/ROBOT/Tests">
+<suite id="s1-s1-s1" name="Test" source="/home/citco/Documents/ROBOT/Tests/test.robot">
+<kw name="Launch Browser" type="SETUP">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T10:43:15.458037" level="INFO">${options} = add_argument("--start-maximized")</msg>
+<var>${options}</var>
+<arg>add_argument("--start-maximized")</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T10:43:15.457309" elapsed="0.000864"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-22T10:43:15.460178" level="INFO">Opening browser 'chrome' to base url 'http://marmelab.com/react-admin-demo' through remote server at '172.17.0.1:4444'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>remote_url=172.17.0.1:4444</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-22T10:43:15.458842" elapsed="14.654702"/>
+</kw>
+<status status="PASS" start="2024-10-22T10:43:15.454612" elapsed="14.659374"/>
+</kw>
+<test id="s1-s1-s1-t1" name="My First Test Case" line="16">
+<kw name="LogIn User">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T10:43:30.128920" elapsed="0.655085"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T10:43:30.788717" level="INFO">Typing text 'demo' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T10:43:30.784589" elapsed="0.528011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T10:43:31.315224" level="INFO">Typing text 'demo' into text field 'name:password'.</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T10:43:31.313006" elapsed="0.265429"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T10:43:31.582482" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<arg>//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T10:43:31.582030" elapsed="0.468015"/>
+</kw>
+<arg>demo</arg>
+<arg>demo</arg>
+<status status="PASS" start="2024-10-22T10:43:30.124563" elapsed="1.925939"/>
+</kw>
+<status status="PASS" start="2024-10-22T10:43:30.114292" elapsed="1.936651"/>
+</test>
+<status status="PASS" start="2024-10-22T10:43:14.245533" elapsed="17.806267"/>
+</suite>
+<status status="PASS" start="2024-10-22T10:43:14.243467" elapsed="17.810618"/>
+</suite>
+<status status="PASS" start="2024-10-22T10:43:13.943132" elapsed="18.114798"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="ROBOT">ROBOT</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">ROBOT.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Test">ROBOT.Tests.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

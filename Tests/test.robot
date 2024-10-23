@@ -4,6 +4,7 @@ Library    ../Library/Users.py
 Library    ../venv/lib/python3.12/site-packages/robot/libraries/Collections.py
 Variables    ../Variables/variables.py
 Suite Setup    Launch Browser
+# Suite Teardown    Close Browser
 
 *** Variables ***
 ${remote_url}     http://172.17.0.1:4444
@@ -46,6 +47,11 @@ Fetch Data
     ${user_length}  Get Length    ${users}
     Set Suite Variable    ${USERS}    ${users}
     Set Suite Variable  ${USER_LENGTH}    ${user_length}
+
+
+Count All Rows In Tbody
+    ${row_count}=    Get Element Count    //tbody/tr
+    Log To Console   Number of rows in tbody: ${row_count}
 
 Open Add Identity Modal
     Click Element    //a[@aria-label="Create"]
@@ -102,9 +108,9 @@ Display All names
 
     FOR    ${i}    IN RANGE    0    ${NAMES_LIST_LENGTH}
         IF  ${i} == 0
-            Log To Console   "###################################"
+            Log To Console   --------------------------------------
             Log To Console    All Created Users Are Displayed 
-            Log To Console   "###################################"
+            Log To Console   --------------------------------------
         END
 
         
@@ -128,7 +134,7 @@ Display All names
         Set Suite Variable    ${ORDERS_LIST}    ${orders_list}
         
         
-        Log To Console    "\n#########" USER ${i+1} "#########\n"
+        Log To Console    -------- USER ${i+1} --------
         Log To Console    ${header} : ${NAMES_LIST}[${i}]
         Log To Console    Last Seen : ${last_seen}
         Log To Console    Orders : ${orders}
@@ -136,12 +142,12 @@ Display All names
         Log To Console    Latest Purchase : ${lastest_purchase}
         Log To Console    News : ${news}
         Log To Console    Segment : ${segment}
-        Log To Console    "\n##############################\n"                        
+        Log To Console    ------------------------------
     END
 
 Check Orders List Count
     ${zero_orders_count}  Get Length  ${ORDERS_LIST}
-    
+
     IF  ${zero_orders_count} >= 1
         Fail    Users with zero orders found: ${ORDERS_LIST}
     END
